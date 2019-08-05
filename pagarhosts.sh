@@ -5,7 +5,8 @@ HEADER='Content-Type:application/json'
 USER='"Admin"'
 PASS='"zabbix"'
 
-autenticacao(){
+autenticacao()
+{
   JSON='
   {
     "jsonrpc": "2.0",
@@ -13,15 +14,16 @@ autenticacao(){
     "params": {
         "user": '$USER',
         "password": '$PASS'
-    },
-    "id": 0,
+      },
+      "id": 0,
     }
     '
-    curl -s -X POST -H "$HEADER" -d "$JSON" "$URL"  | cut -d '"' -f8
+    #curl -s -X POST -H "$HEADER" -d "$JSON" "$URL"  | cut -d '"' -f8
   }
   TOKEN=$(autenticacao)
   
-  pagarhost(){
+ pagarhosts()
+ {
     JSON='
      {
       "jsonrpc": "2.0",
@@ -36,6 +38,7 @@ autenticacao(){
     "id":1
   }
   '
-  curl -s -X POST -H "$HEADER" -d "$JSON" "$URL" | python -mjson.tool
+  #curl -s -X POST -H "$HEADER" -d "$JSON" "$URL" | python -mjson.tool
   
   }
+  pagarhosts
