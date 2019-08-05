@@ -1,5 +1,5 @@
 #!/bin/sh
-URL='http://http://192.168.120.104/zabbix/api_jsonrpc.php'
+URL='http://192.168.120.104/zabbix/api_jsonrpc.php'
 HEADER='Content-Type:application/json'
 
 USER='"Admin"'
@@ -16,9 +16,10 @@ autenticacao()
         "password": '$PASS'
       },
       "id": 0,
+      "auth":nall
     }
     '
-    #curl -s -X POST -H "$HEADER" -d "$JSON" "$URL"  | cut -d '"' -f8
+    curl -s -X POST -H "$HEADER" -d "$JSON" "$URL"  | cut -d '"' -f8
   }
   TOKEN=$(autenticacao)
   
@@ -38,7 +39,8 @@ autenticacao()
     "id":1
   }
   '
-  #curl -s -X POST -H "$HEADER" -d "$JSON" "$URL" | python -mjson.tool
+  curl -s -X POST -H "$HEADER" -d "$JSON" "$URL" | python -mjson.tool
   
   }
   pagarhosts
+
