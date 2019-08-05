@@ -15,7 +15,7 @@ autenticacao()
         "user": '$USER',
         "password": '$PASS'
       },
-      "id": 0,
+      "id": 1,
       "auth":nall
     }
     '
