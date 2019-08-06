@@ -20,7 +20,7 @@ payload = {
     "method" : "user.login",
     "params": {
       'user': "Admin",
-      'password':"zabbix,
+      'password':"zabbix",
     },
     "auth" : None,
     "id" : 0,
@@ -59,7 +59,7 @@ payload = {
     "method": "item.get",
     "params": {
         "output": "extend",
-        "hostids": "100299",
+        "hostids": "10299",
         "search": {
             "key_": "system"
         },
