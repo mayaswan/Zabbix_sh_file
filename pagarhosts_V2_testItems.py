@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 # vim: set fileencoding=utf8
 #
 # authenticate with zabbix api server, and retrieve monitored hosts
@@ -8,7 +9,7 @@ import requests
 from pprint import pprint
 import json
 
-ZABIX_ROOT = 'http://localhost/zabbix'
+ZABIX_ROOT = 'http://192.168.120.104/zabbix'
 url = ZABIX_ROOT + '/api_jsonrpc.php'
 
 ########################################
@@ -29,7 +30,7 @@ headers = {
 }
 res  = requests.post(url, data=json.dumps(payload), headers=headers)
 res = res.json()
-print 'user.login response'
+#print 'user.login response'
 pprint(res)
 
 ########################################
@@ -44,9 +45,30 @@ payload = {
           'name'],
     },
     "auth" : res['result'],
-    "id" : 2,
+    "id" : 1,
 }
 res2 = requests.post(url, data=json.dumps(payload), headers=headers)
 res2 = res2.json()
-print 'host.get response'
+#print 'host.get response'
 pprint(res2)
+########################################
+# item.get
+########################################
+payload = {
+    "jsonrpc": "2.0",
+    "method": "item.get",
+    "params": {
+        "output": "extend",
+        "hostids": "100299",
+        "search": {
+            "key_": "system"
+        },
+        "sortfield": "name"
+    },
+    "auth": res['result'],
+    "id": 2
+}
+res3 = requests.post(url, data=json.dumps(payload), headers=headers)
+res3 = res3.json()
+#print 'host.get response'
+pprint(res3)
