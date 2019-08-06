@@ -45,7 +45,7 @@ payload = {
           'name'],
     },
     "auth" : res['result'],
-    "id" : 1,
+    "id" : 2,
 }
 res2 = requests.post(url, data=json.dumps(payload), headers=headers)
 res2 = res2.json()
@@ -66,7 +66,7 @@ payload = {
         "sortfield": "name"
     },
     "auth": res['result'],
-    "id": 2
+    "id": 3
 }
 res3 = requests.post(url, data=json.dumps(payload), headers=headers)
 res3 = res3.json()
