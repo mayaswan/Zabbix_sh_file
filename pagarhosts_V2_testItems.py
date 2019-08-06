@@ -19,8 +19,8 @@ payload = {
     "jsonrpc" : "2.0",
     "method" : "user.login",
     "params": {
-      'user': 'api',
-      'password':'api',
+      'user': "Admin",
+      'password':"zabbix,
     },
     "auth" : None,
     "id" : 0,
