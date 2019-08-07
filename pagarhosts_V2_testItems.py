@@ -8,6 +8,7 @@
 import requests
 from pprint import pprint
 import json
+import time 
 
 ZABIX_ROOT = 'http://192.168.120.104/zabbix'
 url = ZABIX_ROOT + '/api_jsonrpc.php'
@@ -72,3 +73,4 @@ while True:
         res3 = res3.json()
         #print 'host.get response'
         pprint(res3)
+        time.sleep(5)
